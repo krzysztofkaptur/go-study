@@ -6,8 +6,9 @@ My Golang projects journey
 
 ### Projects
 
-1. [Hello world](./materials/projects/hello-world/README.md)
-1. [Greetings](./materials/projects/greetings/README.md)
+1. [Hello world](./materials/projects/00_hello-world/README.md)
+2. [Greetings](./materials/projects/01_greetings/README.md)
+3. [Initials](./materials/projects/02_initials/README.md)
 
 ## Resources
 
