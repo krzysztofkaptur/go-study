@@ -2,45 +2,41 @@ package main
 
 import (
 	"fmt"
-	display "mysandbox/display"
+	"mysandbox/bill"
 )
 
-func getName(name string) {
-	name = "cloud"
+type shape interface {
+	area() float64
 }
 
-type personStruct struct {
-	name string
-	age int
-	sayName func()
+type shapeStruct struct {
+	x float64
+	y float64
 }
 
-func createPerson(n string) personStruct {
-	return personStruct{
-		name: n,
-		age: 11,
-		sayName: func() {
-			fmt.Println(age)
-		},
-	}
+func (s shapeStruct) area() float64 {
+	return s.x * s.y
 }
 
 func main() {
-  display.Display()
-	display.Kek()
+	myBill := bill.NewBill("Mario's bill")
 
-	phonebook := map[string]int {
-		"mario": 345543245,
+
+	marioBill := map[string]float64{
+		"salami": 4.47,
+		"salad": 7.47,
+		"steak": 12.47,
 	}
 
-	fmt.Println(phonebook["mario"])
+	myBill.AddBill(marioBill)
+	myBill.AddTip(5.0)
+	myBill.AddItem("french fries", 4.34)
+	fmt.Println(myBill.Format())
 
-	x := "tifa"
+	myShape := shapeStruct{
+		x: 5.5,
+		y: 15,
+	}
 
-	getName(x)
-
-	newCharacter := createPerson("Abed")
-
-	fmt.Println(x)
-	newCharacter.sayName()
+	fmt.Println(myShape.area())
 }
